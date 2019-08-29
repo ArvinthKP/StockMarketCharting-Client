@@ -1,0 +1,262 @@
+<div class="card shadow">
+    <p class="h4 card-header">Compare</p>
+    <div class="card-body bg-light">
+        <div class="row">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="tab" role="tablist">
+                    <a class="nav-link bg-dark mt-2 text-white mb-2 active" id="compare1" data-toggle="pill"
+                        href="#target1" role="tab">One company Specific Period</a>
+                    <a class="nav-link bg-dark mt-2 text-white mb-2" id="compare2" data-toggle="pill" href="#target2"
+                        role="tab">Two Company Specific Period</a>
+                    <a class="nav-link bg-dark mt-2 text-white mb-2" id="compare3" data-toggle="pill" href="#target3"
+                        role="tab">One Sector Specific Period</a>
+                    <a class="nav-link bg-dark mt-2 text-white mb-2" id="compare4" data-toggle="pill" href="#target4"
+                        role="tab">Diff. Sector Specific Period</a>
+                    <a class="nav-link bg-dark mt-2 text-white mb-2" id="compare5" data-toggle="pill" href="#target5"
+                        role="tab">Btw. Sector & Company Specific Period</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <!-- tabPane1 -->
+                <div class="tab-content" id="tabContent">
+                    <div class="tab-pane mt-2 mb-2 fade show active" id="target1" role="tabpanel">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Choose Company</label>
+                            </div>
+                            <select #tab1i1 class="custom-select" id="inputGroupSelect01" required>
+                                <option *ngFor="let company of companies" [value]="company.id">
+                                    {{ company?.companyName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect02">Choose Stock
+                                    Exchange</label>
+                            </div>
+                            <select #tab1i2 class="custom-select" id="inputGroupSelect02" required>
+                                <option *ngFor="let stockExchange of stockExchanges" [value]="stockExchange.id">
+                                    {{ stockExchange?.stockExchangeName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect03">Periodicity</label>
+                            </div>
+                            <select #tab1i3 class="custom-select" id="inputGroupSelect03" required>
+                                <option value="day">Day</option>
+                                <option value="month">Month</option>
+                            </select>
+                        </div>
+
+
+                        <button (click)="onClick1(tab1i1.value, tab1i2.value, tab1i3.value)" type="button"
+                            class="btn btn-success">Generate Chart</button>
+
+                    </div>
+                    <!-- tabPane2 -->
+                    <div class="tab-pane mt-2 mb-2 fade" id="target2" role="tabpanel">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect04">Choose Company</label>
+                            </div>
+                            <select #tab2i1 class="custom-select" id="inputGroupSelect04" required>
+                                <option *ngFor="let company of companies" [value]="company.id">
+                                    {{ company?.companyName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect05">Choose Company</label>
+                            </div>
+                            <select #tab2i2 class="custom-select" id="inputGroupSelect05" required>
+                                <option *ngFor="let company of companies" [value]="company.id">
+                                    {{ company?.companyName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect06">Choose Stock
+                                    Exchange</label>
+                            </div>
+                            <select #tab2i3 class="custom-select" id="inputGroupSelect06" required>
+                                <option *ngFor="let stockExchange of stockExchanges" [value]="stockExchange.id">
+                                    {{ stockExchange?.stockExchangeName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect07">Periodicity</label>
+                            </div>
+                            <select #tab2i4 class="custom-select" id="inputGroupSelect07" required>
+                                <option value="day">Day</option>
+                                <option value="month">Month</option>
+                            </select>
+                        </div>
+
+                        <button (click)="onClick2(tab2i1.value, tab2i2.value, tab2i3.value, tab2i4.value)" type="button"
+                            class="btn btn-success">Generate Chart</button>
+
+                    </div>
+                    <!-- tabPane3 -->
+                    <div class="tab-pane mt-2 mb-2 fade" id="target3" role="tabpanel">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect08">Choose Sector</label>
+                            </div>
+                            <select #tab3i1 class="custom-select" id="inputGroupSelect08" required>
+                                <option *ngFor="let sector of sectors" [value]="sector.sectorName">
+                                    {{ sector?.sectorName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect09">Choose Stock
+                                    Exchange</label>
+                            </div>
+                            <select #tab3i2 class="custom-select" id="inputGroupSelect09" required>
+                                <option *ngFor="let stockExchange of stockExchanges" [value]="stockExchange.id">
+                                    {{ stockExchange?.stockExchangeName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect10">Periodicity</label>
+                            </div>
+                            <select #tab3i3 class="custom-select" id="inputGroupSelect10" required>
+                                <option value="day">Day</option>
+                                <option value="month">Month</option>
+                            </select>
+                        </div>
+
+
+                        <button (click)="onClick3(tab3i1.value, tab3i2.value, tab3i3.value)" type="button"
+                            class="btn btn-success">Generate Chart</button>
+
+                    </div>
+                    <!-- tabPane4 -->
+                    <div class="tab-pane mt-2 mb-2 fade" id="target4" role="tabpanel">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect11">Choose Sector</label>
+                            </div>
+                            <select #tab4i1 class="custom-select" id="inputGroupSelect11" required>
+                                <option *ngFor="let sector of sectors" [value]="sector.sectorName">
+                                    {{ sector?.sectorName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect12">Choose Sector</label>
+                            </div>
+                            <select #tab4i2 class="custom-select" id="inputGroupSelect12" required>
+                                <option *ngFor="let sector of sectors" [value]="sector.sectorName">
+                                    {{ sector?.sectorName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect13">Choose Stock
+                                    Exchange</label>
+                            </div>
+                            <select #tab4i3 class="custom-select" id="inputGroupSelect13" required>
+                                <option *ngFor="let stockExchange of stockExchanges"
+                                    [value]="stockExchange.stockExchangeName">
+                                    {{ stockExchange?.stockExchangeName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect14">Periodicity</label>
+                            </div>
+                            <select #tab4i4 class="custom-select" id="inputGroupSelect14" required>
+                                <option value="day">Day</option>
+                                <option value="month">Month</option>
+                            </select>
+                        </div>
+
+                        <button (click)="onClick4(tab4i1.value, tab4i2.value, tab4i3.value, tab4i4.value)" type="button"
+                            class="btn btn-success">Generate Chart</button>
+
+                    </div>
+                    <!-- tabPane5 -->
+                    <div class="tab-pane mt-2 mb-2 fade" id="target5" role="tabpanel">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect15">Choose Company</label>
+                            </div>
+                            <select #tab5i1 class="custom-select" id="inputGroupSelect15" required>
+                                <option *ngFor="let company of companies" [value]="company.companyName">
+                                    {{ company?.companyName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect16">Choose Sector</label>
+                            </div>
+                            <select #tab5i2 class="custom-select" id="inputGroupSelect16" required>
+                                <option *ngFor="let sector of sectors" [value]="sector.sectorName">
+                                    {{ sector?.sectorName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect17">Choose Stock
+                                    Exchange</label>
+                            </div>
+                            <select #tab5i3 class="custom-select" id="inputGroupSelect17" required>
+                                <option *ngFor="let stockExchange of stockExchanges"
+                                    [value]="stockExchange.stockExchangeName">
+                                    {{ stockExchange?.stockExchangeName }}</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect18">Periodicity</label>
+                            </div>
+                            <select #tab5i4 class="custom-select" id="inputGroupSelect018" required>
+                                <option value="day">Day</option>
+                                <option value="month">Month</option>
+                            </select>
+                        </div>
+
+                        <button (click)="onClick5(tab5i1.value, tab5i2.value, tab5i3.value, tab5i4.value)" type="button"
+                            class="btn btn-success">Generate Chart</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow mt-5 mb-5" *ngIf="generate">
+    <p class="h4 card-header">Chart</p>
+    <div class="card-body bg-light">
+        <div style="display: block;" *ngIf="lineChartData.length > 0">
+            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+            </canvas>
+        </div>
+
+    </div>
+</div>

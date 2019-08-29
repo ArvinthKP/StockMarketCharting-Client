@@ -1,0 +1,18 @@
+<div class="card shadow">
+    <p class="h4 card-header">User Details</p>
+    <div class="card-body bg-light">
+        <div class="d-flex align-items-center flex-sm-row flex-column">
+
+            <img class="img-responsive rounded mg-thumbnail d-block" src="https://dummyimage.com/150x150/efefef"
+                alt="Card image cap">
+
+            <div class="mt-xs-4 ml-sm-3">
+                <p>{{ user?.username }}</p>
+                <p>{{ user?.email }}</p>
+                <p>{{ user?.mobile }}</p>
+            </div>
+        </div>
+        <div class="d-flex flex-row-reverse">
+            <button routerLink="/user/update-user" class="btn btn-danger ml-2 card-text">Update Details</button>
+        </div>
+    </div>

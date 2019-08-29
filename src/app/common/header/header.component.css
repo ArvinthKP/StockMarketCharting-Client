@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
+
+.navbar-brand{
+    font-family: 'Chilanka', cursive;  
+    color: white;
+
+}
+.navbar{
+    background-color: black;
+}
+.nav-link{
+    color: white;
+}

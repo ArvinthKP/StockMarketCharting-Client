@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
+
+.navbar-brand{
+    font-family: 'Chilanka', cursive;  
+    color: white;
+
+}
+.navbar{
+    background-color: black;
+}
+.card-header{
+    font-family: 'Chilanka', cursive;
+    font-weight:  bold;
+    
+}
+::placeholder{
+    color: blue;
+    font-family: 'Chilanka', cursive;
+    font-weight: bold;
+    text-align: center;
+}
+small{
+    font-family: 'Chilanka', cursive;
+    font-weight:  bold;
+}

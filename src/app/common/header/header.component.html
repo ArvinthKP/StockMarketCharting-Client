@@ -1,0 +1,101 @@
+<header class="shadow" *ngIf="role == 'ADMIN'">
+    <nav class="navbar navbar-expand-xl ">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h1 class="tm-site-title mb-0">Stock Market Charting</h1>
+            </a>
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mx-auto">
+
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/admin/upload">Import Stock Data</a>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Manage Company
+                        </span>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/admin/add-company">Add Company</a>
+                            <a class="dropdown-item" routerLink="/admin/list-company">List Company</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Manage Exchange
+                        </span>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/admin/add-stock-exchange">Add Exchange</a>
+                            <a class="dropdown-item" routerLink="/admin/list-stock-exchange">List Exchange</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/admin/list-ipo">Manage IPO Details</a>
+                    </div>
+
+                </div>
+                <div class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user mr-2 mt-1"></i> {{ username | uppercase }}
+                    </span>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <button class="dropdown-item" (click)="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<header *ngIf="role == 'USER'" class="shadow">
+    <nav class="navbar navbar-expand-xl ">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h1 class="tm-site-title mb-0">Stock Market Charting</h1>
+            </a>
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mx-auto">
+
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/user/manage-ipo">Manage IPO</a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/user/compare-details">Compare</a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" routerLink="/user/search">Search</a>
+                    </div>
+
+                </div>
+                <div class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user mr-2 mt-1"></i> {{ username | uppercase}}
+                    </span>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <button class="dropdown-item" (click)="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

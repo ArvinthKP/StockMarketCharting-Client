@@ -1,0 +1,25 @@
+<div class="card shadow">
+        <p class="h4 card-header">List of Stock Exchanges</p>
+        <div class="card-body bg-light">
+    
+            <table class="table table-borderless table-hover">
+                <thead>
+                    <tr class="">
+                        <th scope="col">#</th>
+                        <th scope="col">Stock Exchange</th>
+                        <th scope="col">About this</th>
+                        <th scope="col">Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let stockExchange of stockExchanges">
+                        <th scope="row">{{ stockExchange?.id }}</th>
+                        <td>{{ stockExchange?.stockExchangeName }}</td>
+                        <td>{{ stockExchange?.brief }}</td>
+                        <td>{{ stockExchange?.address }}</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    </div>

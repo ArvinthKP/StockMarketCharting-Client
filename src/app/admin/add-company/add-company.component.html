@@ -1,0 +1,68 @@
+<div class="card shadow">
+    <p class="h4 card-header">Add New Company</p>
+    <div class="card-body bg-light">
+        <p class="card-text h6">Please fill the details:</p>
+        <form (ngSubmit)="onSubmit()">
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Company Name</span>
+                </div>
+                <input [(ngModel)]="company && company.companyName" name="companyName" type="text" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Turnover in Rs.</span>
+                </div>
+                <input [(ngModel)]="company.turnover" name="turnover" type="text" class="form-control">
+                <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
+            </div>
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">CEO</span>
+                </div>
+                <input [(ngModel)]="company.ceo" name="ceo" type="text" class="form-control" />
+            </div>
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Board of Director</span>
+                </div>
+                <input [(ngModel)]="company.boardOfDirector" name="boardOfDirector" type="text" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">About Company</span>
+                </div>
+                <textarea [(ngModel)]="company.brief" name="brief" class="form-control" aria-label="With textarea"></textarea>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                </div>
+                <select [(ngModel)]="company.stockExchange" name="stockExchange" class="custom-select" id="inputGroupSelect01" required>
+                    <option value="" selected>Choose Stock Exchange...</option>
+                    <option *ngFor="let stockExchange of stockExchanges" [value]="stockExchange.stockExchangeName">{{ stockExchange?.stockExchangeName }}</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                </div>
+                <select [(ngModel)]="company.sector" name="sector" class="custom-select" id="inputGroupSelect02" required>
+                    <option value="" selected>Choose Sector...</option>
+                    <option *ngFor="let sector of sectors" [value]="sector.sectorName">{{ sector?.sectorName }}</option>
+                </select>
+            </div>
+            <div class="d-flex no-gutters">
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Add</button>
+                    <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                </div>
+                <div>
+                    <button (click)="backClicked()" type="button" class="btn btn-secondary">Back</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
